@@ -11,7 +11,7 @@ cd ./zk-age-verify && nargo compile && nargo execute
 
 # Step 1: Generate proof
 echo "2️⃣ - Generating proof... 💻"
-bb prove -b ./target/project.json -w ./target/project.gz -o ./target/proof
+bb prove -b ./target/age.json -w ./target/age.gz -o ./target/proof
 if [ $? -ne 0 ]; then
     echo "Error: Proof generation failed 🔴"
     exit 1
@@ -19,7 +19,7 @@ fi
 
 # Step 2: Write verification key
 echo "3️⃣ - Writing verification key... 🔑"
-bb write_vk -b ./target/project.json -o ./target/vk
+bb write_vk -b ./target/age.json -o ./target/vk
 if [ $? -ne 0 ]; then
     echo "Error: Writing verification key failed 🔴"
     exit 1
@@ -36,4 +36,4 @@ fi
 echo "All operations completed successfully! ✅"
 
 # Clean up
-rm -rf ./zk-age-verify/target
+rm -rf ./target

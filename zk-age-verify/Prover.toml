@@ -1,2 +1,4 @@
 age = "20"
+age_blinding = "1"
+age_commit = "0x29a0e60256827455d5daf3bd6bae941ecc9d216992e04e044d01f0f00fbf9851"
 expected_age = "18"

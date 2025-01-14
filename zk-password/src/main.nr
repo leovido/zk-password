@@ -1,7 +1,9 @@
 use std::hash::poseidon2;
 
 fn main(password: Field, hashed_password: pub Field) -> pub bool {
-    poseidon2::Poseidon2::hash([password], 1) == hashed_password
+    let is_valid = poseidon2::Poseidon2::hash([password], 1) == hashed_password;
+    assert(is_valid);
+    is_valid
 }
 
 fn string_to_field<let N: u32>(pw: str<N>) -> Field {
