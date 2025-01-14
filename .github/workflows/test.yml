@@ -1,0 +1,35 @@
+name: Run Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Install Nargo
+      run: |
+        curl -L https://github.com/noir-lang/noir/releases/download/v1.0.0-beta.1/nargo-x86_64-unknown-linux-gnu.tar.gz -o nargo.tar.gz
+        tar -xvf nargo.tar.gz
+        sudo mv nargo /usr/local/bin/
+        
+    - name: Install and run Barretenberg
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libc++-dev libc++abi-dev
+        curl -L https://raw.githubusercontent.com/AztecProtocol/aztec-packages/refs/heads/master/barretenberg/bbup/install | bash
+        /home/runner/.bb/bbup
+        echo "/home/runner/.bb" >> $GITHUB_PATH
+      shell: bash
+
+    - name: Make test script executable
+      run: chmod +x scripts/test.sh
+      
+    - name: Run tests
+      run: ./scripts/test.sh 
