@@ -3,6 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Noir](https://img.shields.io/badge/Built%20with-Noir-black)](https://noir-lang.org/)
 [![ZK](https://img.shields.io/badge/Zero-Knowledge-blue)](https://en.wikipedia.org/wiki/Zero-knowledge_proof)
+[![Tests](https://github.com/leovido/zk-password/actions/workflows/test.yml/badge.svg)](https://github.com/leovido/zk-password/actions/workflows/test.yml)
 
 Learning Zero Knowledge Proofs (ZK) with Noir - A simple password verification implementation using Zero Knowledge Proofs.
 
