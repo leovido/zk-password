@@ -1,14 +1,13 @@
 #!/bin/bash
 
-# Create a script called 'run_bb.sh'
-
 echo "0️⃣ - Clearing up target folder"
 
 nargo test --show-output
 
-rm -rf ../target
+rm -rf ./zk-age-verify/target
 
 echo "1️⃣ - Starting BB operations..."
+cd ./zk-age-verify && nargo compile && nargo execute
 
 # Step 1: Generate proof
 echo "2️⃣ - Generating proof... 💻"
@@ -35,3 +34,6 @@ if [ $? -ne 0 ]; then
 fi
 
 echo "All operations completed successfully! ✅"
+
+# Clean up
+rm -rf ./zk-age-verify/target

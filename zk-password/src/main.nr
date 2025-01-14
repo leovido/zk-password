@@ -19,3 +19,21 @@ fn test_password_hash() {
     let result = main(pw, hashed_password);
     assert(result);
 }
+
+#[test]
+fn test_password_hash_fail() {
+    let pw = string_to_field("fancy password");
+    let hashed_password = 0x0fdc0ac2d63c043e624f96fa51270e4935c89de1e29814b5703c6b940eb64947;
+
+    let result = main(pw, hashed_password);
+    assert(!result);
+}
+
+#[test]
+fn test_password_hash_fail_wrong_hash() {
+    let pw = string_to_field("fancy password");
+    let hashed_password = 0x0fdd0ac2d63c043e624f96fa51270e4935c89de1e29814b5703c6b940eb64947;
+
+    let result = main(pw, hashed_password);
+    assert(!result);
+}
