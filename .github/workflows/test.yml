@@ -29,10 +29,10 @@ jobs:
       shell: bash
 
     - name: Make test script executable for age verify
-      run: chmod +x scripts/test.sh
+      run: chmod +x scripts/test-age.sh
       
     - name: Run tests
-      run: ./scripts/test.sh 
+      run: ./scripts/test-age.sh 
 
     - name: Make test script executable for passwords
       run: chmod +x scripts/test-passwords.sh
